@@ -1,0 +1,61 @@
+create database rpg;
+use rpg;
+
+create table rpge(
+	idp int primary key not null auto_increment,  -- Id Player--
+    jogador varchar(40),
+	N_Personagem varchar (40),
+    Classe varchar (40),
+    Raça varchar (30),
+    Nível int,
+    Tendência char(2),
+    Divindandes varchar(25)
+);
+select * from rpge;
+insert into rpge (Jogador, N_Personagem, Classe, Raça, Nível, Tendência, Divindandes) values
+	('Arthur','Glauber', 'Ladino', 'Halfling(Pés-Leves)', 1, 'N', 'Nimb'),
+    ('Isabela','Afrodite/Galandriel','Bárbara','Elfo-Drow', 1,'	N', 'Lolth'),
+	('João Pedro','Zenck','Paladino','Humano(Thief)',1, 'N', 'Torak'),
+    ('Pedro','Karin','Monge','Tiefling',1,'N','Vicomane/Kan´thai'),
+    ('Ricardo','Tumval','Mago','Draconato(Preto)',1,'N', ''),
+    ('Carina','Galadria','Bruxa','Elfo',1,'N', ''),
+    ('Henrique','Drogolhus','Barbáro','Anão',1, 'N','Torak');
+    
+select * from rpge;
+create table divindades(
+	idvindades int auto_increment primary key,
+	nome_divindades varchar(40),
+	tendencias varchar(20),
+	Simbolo varchar(40),
+    Aparencia varchar(100)
+);
+select * from divindades;
+-- create table Npc_u ( -- Npc uteis, mas nao tao importantes para a historia em si
+	-- idu_npc int auto_increment primary key,
+  --   nome_npcu varchar(40),
+    -- tendencias_npcu varchar(40),
+    -- idade_npcu int, CRIAR TABELA DE Raças e classes(ARQUEIPOS E ETC)
+    
+insert into divindades(nome, tendencias, Simbolo, Aparencia) values
+	('Holy','CN','Martelo e Bigorna','Anã Loira, Martelo extremamente Gigante,Vestimentas e Armaduras Brancas, Amarelas e Verdes'),
+    ('Mehra','NG','Concha Azul','Imagem da Nami'),
+    ('Vicomane/Kan´thai','LB','Rosa Cravejada/Cristalizada',''),
+    ('Torak','CN','Machado Ensanguentado','Homem Musculoso com cabeça de Touro');
+select * from divindades;
+create table Classes(
+	idClasse int auto_increment primary key,
+    Nome_classe varchar(40),
+    Hit_Dice varchar(5),
+    Armor_Prof varchar(40),
+    Weapons_Prof varchar(40),
+    Saving_Throw varchar(40),
+    pericias varchar(50)
+);
+Create table Racas(		
+	idRaca int auto_increment primary key,
+    Nome_Raca varchar(40),
+    sub_raca varchar(40),
+    mod_racial varchar(40),
+    deslocamento float,
+    idiomas varchar(30)
+);
